@@ -8,8 +8,11 @@ The goal is to cluster the abstracts of some articles from the New York Times ne
 ## About tf-idf
 From wikipedia: tf–idf, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
 
-**Term frequency**
-  tf(t,d) = 1 if t occurs in d and 0 otherwise
+### Term frequency (tf)
+Boolean frequencies
+    tf(t,d) = 1 if t occurs in d and 0 otherwise
+
+http://upload.wikimedia.org/math/b/a/e/bae842b33a4cafc0f22519cf960b052a.png
 
 See:
 * [tf-idf](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
