@@ -5,6 +5,16 @@ Document analysis and natural language processing using the New York Times API N
 
 The goal is to cluster the abstracts of some articles from the New York Times newspaper.
 
+## About tf-idf
+From wikipedia: tf–idf, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
+
+**Term frequency**
+  tf(t,d) = 1 if t occurs in d and 0 otherwise
+
+See:
+* [tf-idf](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+* [tf-idf weight vectors (Wikipedia)](http://en.wikipedia.org/wiki/Vector_space_model#Example:_tf-idf_weights)
+
 ## NLP resources
 The Python NLTK package was primarily used for the NLP tasks of this project.
 
