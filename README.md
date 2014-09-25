@@ -10,6 +10,7 @@ From wikipedia: tf–idf, short for term frequency–inverse document frequency,
 
 ### Term frequency (tf)
 Boolean frequencies
+
     tf(t,d) = 1 if t occurs in d and 0 otherwise
 
 ### Inverse document frequency (idf)
