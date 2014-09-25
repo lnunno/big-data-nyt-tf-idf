@@ -12,6 +12,9 @@ From wikipedia: tf–idf, short for term frequency–inverse document frequency,
 Boolean frequencies
     tf(t,d) = 1 if t occurs in d and 0 otherwise
 
+## Inverse document frequency (idf)
+The inverse document frequency is a measure of how much information the word provides, that is, whether the term is common or rare across all documents. It is the logarithmically scaled fraction of the documents that contain the word, obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient.
+
 http://upload.wikimedia.org/math/b/a/e/bae842b33a4cafc0f22519cf960b052a.png
 
 See:
