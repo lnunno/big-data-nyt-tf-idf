@@ -5,6 +5,14 @@ Document analysis and natural language processing using the New York Times API N
 
 The goal is to cluster the abstracts of some articles from the New York Times newspaper.
 
+## NLP resources
+The Python NLTK package was primarily used for the NLP tasks of this project.
+
+See:
+* [Porter stemmer](http://www.nltk.org/api/nltk.stem.html#module-nltk.stem.porter)
+* [Snowball stemmer](http://www.nltk.org/api/nltk.stem.html#nltk.stem.snowball.SnowballStemmer)
+* [NLTK stopwords](http://stackoverflow.com/questions/19130512/stopword-removal-with-nltk)
+
 ## PART 1: Data acquisition
 
 Part 1 of this homework consists on downloading data using an API. The NY Times API is available at http://developer.nytimes.com. It provides access to various articles, both historic and new. For this assignment we are interested in the Times NewswireAPI, which provides access to articles, blogs, and so on, as they are being produced. For each article we can obtain directly from the API its URL and its abstract, among other information. Your tasks for this section of the problem are the following:
