@@ -21,7 +21,7 @@ http://upload.wikimedia.org/math/b/a/e/bae842b33a4cafc0f22519cf960b052a.png
 
     tfidf(t,d,D) = tf(t,d) * idf(t,D)
 
-See:
+### See Also:
 * [tf-idf](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 * [tf-idf weight vectors (Wikipedia)](http://en.wikipedia.org/wiki/Vector_space_model#Example:_tf-idf_weights)
 
