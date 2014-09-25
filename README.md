@@ -99,4 +99,4 @@ Perform clustering using as features the vector space produced by tf-idf
 
 
 
-Total: 40 points + 6 extra credit proportional to 23 pots of your final grade
+Total: 40 points + 6 extra credit proportional to 23 points of your final grade
