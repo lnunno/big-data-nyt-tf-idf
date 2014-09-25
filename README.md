@@ -10,7 +10,7 @@ The goal is to cluster the abstracts of some articles from the New York Times ne
 Part 1 of this homework consists on downloading data using an API. The NY Times API is available at http://developer.nytimes.com. It provides access to various articles, both historic and new. For this assignment we are interested in the Times NewswireAPI, which provides access to articles, blogs, and so on, as they are being produced. For each article we can obtain directly from the API its URL and its abstract, among other information. Your tasks for this section of the problem are the following:
 
 
-1. Downloading the data (5 pts)
+(1) Downloading the data (5 pts)
 
 - Study the API, download 50,000 different articles from the Times Newswire API.
 
@@ -33,7 +33,7 @@ c. OutputCollector - output - this has the .collect method to output a <key, val
 d. Reporter reporter - allows us to retrieve some information about the job (like the current filename) 
 
 
- 2. Preprocessing of the abstracts. (10 pts)
+ (2) Preprocessing of the abstracts. (10 pts)
 
 - Your map function should extract individual words from the input it is given, and output the word as the key, and the current filename as the value. Thus, the map function (or one of them) should output <"word", "filename"> pairs. 
 
@@ -53,12 +53,11 @@ Hints:
 * To get the current filename, use the following code snippet:
 
     FileSplit fileSplit = (FileSplit)reporter.getInputSplit();
-
     String fileName = fileSplit.getPath().getName();
 
 
 
-3. TF-IDF (5 pts)
+(3) TF-IDF (5 pts)
 
 - For each document compute its tf-idf vector as explained in *******
 
@@ -71,7 +70,7 @@ Hints:
 
 Perform clustering using as features the vector space produced by tf-idf
 
-4. Use a clustering algorithm of your choice (10 pts)
+(4) Use a clustering algorithm of your choice (10 pts)
 
 - Explain why did you chose that particular algorithm, what are pros and cons
 
@@ -81,13 +80,13 @@ Perform clustering using as features the vector space produced by tf-idf
 
 
 
-5. Perform a statistical analysis about the top 20 most discriminative terms per cluster (5 pts)
+(5) Perform a statistical analysis about the top 20 most discriminative terms per cluster (5 pts)
 
 - Use tf-idf scores to find most discriminative terms per cluster
 
 
 
-6. Present a visualization of clusters and term frequencies (5 pts)
+(6) Present a visualization of clusters and term frequencies (5 pts)
 
 - Use any graphic/visualization program of your choice
 
@@ -95,7 +94,7 @@ Perform clustering using as features the vector space produced by tf-idf
 
 
 
-7. Submit a presentation explaining/describing/showing clearly each of the previous 6 points. After submission, no further changes to your presentation will be allowed
+(7) Submit a presentation explaining/describing/showing clearly each of the previous 6 points. After submission, no further changes to your presentation will be allowed
 
 
 
