@@ -21,14 +21,14 @@ http://upload.wikimedia.org/math/b/a/e/bae842b33a4cafc0f22519cf960b052a.png
 
     tfidf(t,d,D) = tf(t,d) * idf(t,D)
 
-### See Also:
+### See:
 * [tf-idf](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 * [tf-idf weight vectors (Wikipedia)](http://en.wikipedia.org/wiki/Vector_space_model#Example:_tf-idf_weights)
 
 ## NLP resources
 The Python NLTK package was primarily used for the NLP tasks of this project.
 
-See:
+### See:
 * [Porter stemmer](http://www.nltk.org/api/nltk.stem.html#module-nltk.stem.porter)
 * [Snowball stemmer](http://www.nltk.org/api/nltk.stem.html#nltk.stem.snowball.SnowballStemmer)
 * [NLTK stopwords](http://stackoverflow.com/questions/19130512/stopword-removal-with-nltk)
