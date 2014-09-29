@@ -27,8 +27,8 @@ def main(DEBUG=False):
     offset = 0 + initial_offset
     num_results = 100 if DEBUG else 50000
     print('Going to collect %5d articles.' %(num_results))
-    file_name = 'articles_sample.json' if DEBUG else 'articles.json'
-    file_path = os.path.join(DATA_DIR,file_name)
+    input_file_name = 'articles_sample.json' if DEBUG else 'articles.json'
+    file_path = os.path.join(DATA_DIR,input_file_name)
     assert os.path.isdir(DATA_DIR)
     params = {
               'api-key': API_KEY,
@@ -50,7 +50,7 @@ def main(DEBUG=False):
         num_results -= 20
         num_collected = offset - initial_offset 
         print('Collected %5d results' % (num_collected))
-        if (num_collected % 10000) == 0:
+        if (num_collected % 1000) == 0:
             td = {'docs': results}
             tfp = os.path.join(DATA_DIR,'articles_older_%d.json' % (num_collected))
             with open(tfp,'wb') as f:
