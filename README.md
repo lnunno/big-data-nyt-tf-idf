@@ -16,6 +16,8 @@ This presents an issue when using longer documents. To normalize the term freque
 
 ![normalized term frequency](http://nlp.stanford.edu/IR-book/html/htmledition/img454.png)
 
+Where *a* is a smoothing coefficient between 0 and 1. The NLP book at stanford recommends setting this to 0.4
+
 An alternative approach is boolean frequencies where:
 
     tf(t,d) = 1 if t occurs in d and 0 otherwise
