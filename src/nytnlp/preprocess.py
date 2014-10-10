@@ -9,7 +9,7 @@ import re
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 
-remove_pattern = re.compile(r'[,.;&#!\-\'"\(\)\|0-9]')
+remove_pattern = re.compile(r'[^a-z\s]')
 
 stemmer = PorterStemmer()
 
@@ -50,5 +50,5 @@ def word_stem(text):
     return stemmed_text
 
 if __name__ == '__main__':
-    print(clean_text("&#8220;People are crying out for protection from greed and inequality,&#8221; Ban Ki-Moon, the secretary general said Wednesday. &#8220;The United Nations must answer the call.&#8221;"))
+    print(clean_text("&#8220;People are crying out for protection Dollas $ aren't lawmaker's from greed and inequality,&#8221; Ban Ki-Moon, the secretary general said Wednesday. &#8220;The United Nations must answer the call.&#8221;"))
 

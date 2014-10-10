@@ -11,15 +11,21 @@ import sys
 from _io import StringIO
 import csv
 from argparse import ArgumentParser
+from collections import Counter
 
 separator = '\t'
 
 
 def helper(line):
+    counter = Counter()
     docid, abstract, url_str = parse_csv_string(line)
     cleaned = clean_text(abstract)
     for word in cleaned.split():
-        print(word, url_str)
+        # Count all the words.
+        counter[word] += 1
+    # Output the collected counts. 
+    for k,v in counter.items():
+        print('%100s\t%20s\t%5d' % (url_str,k,v))
 
 def main():
     for line in sys.stdin:
@@ -27,7 +33,7 @@ def main():
 
 def parse_csv_string(s):
     f = StringIO(s)
-    reader = csv.reader(f,delimiter=',')
+    reader = csv.reader(f,delimiter=',', dialect=csv.excel_tab)
     ls = []
     for row in reader:
         ls.append(row)

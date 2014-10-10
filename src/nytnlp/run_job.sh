@@ -8,3 +8,5 @@ hadoop jar $HADOOP_LIB/hadoop-streaming-2.5.1.jar \
 -reducer reducer.py                               \
 -input   articles_sample.csv                      \
 -output  nytouts
+
+hdfs dfs -cat nytouts/part-00000
