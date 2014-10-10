@@ -16,6 +16,10 @@ This presents an issue when using longer documents. To normalize the term freque
 
 ![normalized term frequency](http://nlp.stanford.edu/IR-book/html/htmledition/img454.png)
 
+Notice that this is called "augmented" frequency in the wikipedia article for tf-idf.
+
+![augmented frequency](http://upload.wikimedia.org/math/5/c/c/5cc18acd4dbd9be636047fc2a7a10105.png)
+
 Where *a* is a smoothing coefficient between 0 and 1. The NLP book at stanford recommends setting this to 0.4
 
 An alternative approach is boolean frequencies where:
