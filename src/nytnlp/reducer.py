@@ -6,12 +6,22 @@ Created on Oct 9, 2014
 '''
 import sys
 from collections import defaultdict
+import numpy as np
+import pandas as pd
+
+class NYTReducer(object):
+    
+    def __init__(self):
+        self.number_of_articles = 0
+        self.word_count = 0 # Not used currently.
 
 def main():
-    number_of_articles = 0
+    reducer = NYTReducer()
     last_url = None
-    word_count = 0
+    
+    # article_vectors[URL][WORD] = WORD frequency in URL.
     article_vectors = defaultdict(lambda: defaultdict(int))
+    
     for line in sys.stdin:
         # Example:
         # http://www.nyt/whatever,foo,2
@@ -21,16 +31,28 @@ def main():
         if last_url == url:
             # Accumulating
             # Same as the last url.
-            word_count += value
+            reducer.word_count += value
         else:
-            if last_url:
-                print('%100s\t%d' %(last_url,word_count))
-            number_of_articles += 1
-            word_count = value 
+            reducer.number_of_articles += 1
+            reducer.word_count = value 
             last_url = url
-    # Last entry
-    print('%100s\t%d' %(last_url,word_count))
-    print('Number of articles = %d' %(number_of_articles))
+    
+    # We know the number of articles present here.
+    
+    # Create a DataFrame from the dictionary.
+    freq_matrix = pd.DataFrame.from_dict(article_vectors)
+    freq_matrix = freq_matrix.fillna(0) # Fill NaN values with a 0.
+    
+    print('===Freq matrix===\n',freq_matrix)
+    # Calculate the number of documents that each term appears in.
+    df_vector = freq_matrix.apply(lambda a: np.nonzero(a)[0].size, axis=1)
+    print('===Doc freq vector===\n',df_vector)
+    # Normalizes the DataFrame with the "augmented" term-frequency.
+    norm_freq_matrix = freq_matrix + 0.5 + ((0.5 * freq_matrix)/freq_matrix.max())
+    
+    print(norm_freq_matrix)
+    
+    
     
 if __name__ == '__main__':
     main()
