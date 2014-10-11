@@ -9,4 +9,4 @@ hadoop jar $HADOOP_LIB/hadoop-streaming-2.5.1.jar \
 -input   articles_sample.csv                      \
 -output  nytouts
 
-hdfs dfs -cat nytouts/part-00000
+hdfs dfs -get nytouts/part-00000 ../../data/hadoop_output.txt
