@@ -5,6 +5,8 @@ Document analysis and natural language processing using the New York Times API N
 
 The goal is to cluster the abstracts of some articles from the New York Times newspaper.
 
+Information on tf-idf was found at the [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html) book online. In particular, see the [inverse document frequency](http://nlp.stanford.edu/IR-book/html/htmledition/inverse-document-frequency-1.html) and [tf-idf weighting](http://nlp.stanford.edu/IR-book/html/htmledition/tf-idf-weighting-1.html) sections.
+
 ## About tf-idf
 From wikipedia: tf–idf, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
 
