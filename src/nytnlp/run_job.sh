@@ -7,7 +7,7 @@ echo "Starting term frequency job"
 hadoop jar $HADOOP_LIB/hadoop-streaming-2.5.1.jar \
 -mapper  mapper.py                                \
 -reducer tf_reducer.py                            \
--input   articles_sample.csv                      \
+-input   articles.csv                      \
 -output  nytouts
 rm ../../data/tf_vectors.tsv
 hdfs dfs -get nytouts/part-00000 ../../data/tf_vectors.tsv
