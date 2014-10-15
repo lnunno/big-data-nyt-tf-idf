@@ -76,7 +76,5 @@ def main():
     # Save the dataframe for later.
     tf_idf_matrix.to_pickle('../../data/tf_idf_matrix.pkl')
     
-    
-    
 if __name__ == '__main__':
     main()
