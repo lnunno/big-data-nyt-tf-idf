@@ -18,7 +18,11 @@ separator = '\t'
 
 def helper(line):
     counter = Counter()
-    docid, abstract, url_str = parse_csv_string(line)
+    try:
+        docid, abstract, url_str = parse_csv_string(line)
+    except Exception as e:
+#         print('FAIL ON:',line,e)
+        return
     cleaned = clean_text(abstract)
     for word in cleaned.split():
         # Count all the words.
