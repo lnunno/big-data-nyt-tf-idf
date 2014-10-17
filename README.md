@@ -49,6 +49,15 @@ The Python NLTK package was primarily used for the NLP tasks of this project.
 * [Snowball stemmer](http://www.nltk.org/api/nltk.stem.html#nltk.stem.snowball.SnowballStemmer)
 * [NLTK stopwords](http://stackoverflow.com/questions/19130512/stopword-removal-with-nltk)
 
+
+## Apache Spark resources
+
+* [Pyspark API reference](http://spark.apache.org/docs/latest/api/python/)
+    * []
+* [Scala API reference](http://spark.apache.org/docs/latest/api/scala/#package)
+    * [Sparse Vector](https://spark.apache.org/docs/1.0.0/api/scala/index.html#org.apache.spark.mllib.linalg.SparseVector)
+    * [KMeans](https://spark.apache.org/docs/1.0.0/api/scala/index.html#org.apache.spark.mllib.clustering.KMeans)
+
 ## PART 1: Data acquisition
 
 Part 1 of this homework consists on downloading data using an API. The NY Times API is available at http://developer.nytimes.com. It provides access to various articles, both historic and new. For this assignment we are interested in the Times NewswireAPI, which provides access to articles, blogs, and so on, as they are being produced. For each article we can obtain directly from the API its URL and its abstract, among other information. Your tasks for this section of the problem are the following:
