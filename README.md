@@ -53,10 +53,12 @@ The Python NLTK package was primarily used for the NLP tasks of this project.
 ## Apache Spark resources
 * [Spark programming guide](http://spark.apache.org/docs/latest/programming-guide.html)
 * [Pyspark API reference](http://spark.apache.org/docs/latest/api/python/)
-    * [Sparse Vector](http://spark.apache.org/docs/1.0.0/api/python/pyspark.mllib.linalg.SparseVector-class.html)
+    * [Sparse Vector](http://spark.apache.org/docs/1.1.0/api/python/pyspark.mllib.linalg.SparseVector-class.html)
+    * [KMeans](http://spark.apache.org/docs/1.1.0/api/python/pyspark.mllib.clustering.KMeans-class.html)
+    * [KMeansModel](http://spark.apache.org/docs/1.1.0/api/python/pyspark.mllib.clustering.KMeansModel-class.html)
 * [Scala API reference](http://spark.apache.org/docs/latest/api/scala/#package)
-    * [Sparse Vector](https://spark.apache.org/docs/1.0.0/api/scala/index.html#org.apache.spark.mllib.linalg.SparseVector)
-    * [KMeans](https://spark.apache.org/docs/1.0.0/api/scala/index.html#org.apache.spark.mllib.clustering.KMeans)
+    * [Sparse Vector](https://spark.apache.org/docs/1.1.0/api/scala/index.html#org.apache.spark.mllib.linalg.SparseVector)
+    * [KMeans](https://spark.apache.org/docs/1.1.0/api/scala/index.html#org.apache.spark.mllib.clustering.KMeans)
 
 ## PART 1: Data acquisition
 
