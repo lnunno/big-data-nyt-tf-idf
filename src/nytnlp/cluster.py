@@ -35,4 +35,4 @@ if __name__ == '__main__':
         for c in centers:
             # Format in exponential notation.
             s = ','.join([('%e' % x) for x in c])
-            f.write('[%s]\n'% (s))
+            f.write('%s\n'% (s))
