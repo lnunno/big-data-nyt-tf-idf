@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 '''
-Calculate the tf-idf vector for each document.
+Calculate the *normalized* tf-idf vector for each document.
 
 Created on Oct 15, 2014
 
 @author: lnunno
 '''
-import json
 import sys
 import pandas as pd
 import numpy as np
@@ -28,8 +27,12 @@ def main():
         # this is going to be a sparse vector.
         tf_idf_nonzero_vector = tf_idf_vector[tf_idf_vector.nonzero()[0]]
         
+        # Normalize the tf-idf vector, this is important for the clustering done
+        # later on.
+        tf_idf_norm_vector = tf_idf_nonzero_vector / tf_idf_nonzero_vector.sum() 
+        
         s = StringIO()
-        tf_idf_nonzero_vector.to_json(s)
+        tf_idf_norm_vector.to_json(s)
         print('%s\t%s' % (url, s.getvalue()))  # The tf-idf vector.
         
 if __name__ == '__main__':

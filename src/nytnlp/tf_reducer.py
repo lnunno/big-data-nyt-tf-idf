@@ -10,8 +10,6 @@ Created on Oct 14, 2014
 '''
 import sys
 import pandas as pd
-from collections import defaultdict
-import json
 
 def main():
     N = 0
