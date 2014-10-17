@@ -13,7 +13,7 @@ from pandas.io.json import read_json
 from _io import StringIO
 from argparse import ArgumentParser
 
-NONZERO_ONLY = False
+NONZERO_ONLY = True
 
 def main():
     parser = ArgumentParser()
@@ -30,6 +30,10 @@ def main():
         # Calculate tf-idf from tf vector and doc_freq vector 
         tf_idf_vector = tf_vector.multiply(idf_vector, fill_value=0)
         
+        # Normalize the tf-idf vector, this is important for the clustering done
+        # later on.
+        tf_idf_vector = tf_idf_vector / tf_idf_vector.sum() # Normalize the tf-idf vector.
+        
         if NONZERO_ONLY:
             # tf_idf terms where these terms actually exist in this document, since
             # this is going to be a sparse vector.
@@ -37,18 +41,14 @@ def main():
         else:
             output_vector = tf_idf_vector
             
-        # Normalize the tf-idf vector, this is important for the clustering done
-        # later on.
-        output_vector = output_vector / output_vector.sum() 
-        
         s = StringIO()
         
+        output_vector.to_json(s)
         if args.spark:
-            output_vector.to_json(s)
-            print('%s\t%s' % (url, s.getvalue()))
+            indices_zip = list(zip(tf_idf_vector.nonzero()[0].tolist(),output_vector.tolist()))
+            print('%s\t%s' % (url,indices_zip))
         else:
-            output_vector.to_csv(s,index=False)
-            print('%s' % (s.getvalue()))
+            print('%s\t%s' % (url, s.getvalue()))
         
 if __name__ == '__main__':
     main()
