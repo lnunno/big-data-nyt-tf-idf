@@ -13,7 +13,6 @@ import numpy as np
 from pyspark import SparkContext
 from pyspark.mllib.linalg import SparseVector
 from pyspark.mllib.clustering import KMeans
-# from pandas.io.json import read_json
 
 TOTAL_DOCS = 39944
 NUM_CLUSTERS = 20
@@ -24,15 +23,17 @@ def parseVector(line):
     return SparseVector(TOTAL_DOCS,indices_tuple_ls)
     
 if __name__ == '__main__':
-#     doc_freq = read_json('../../data/doc_freq.json', typ='series')
     sc = SparkContext(appName="KMeans")
     lines = sc.textFile('../../data/spark_tf_idf_vectors.tsv')
     data = lines.map(parseVector)
     model = KMeans.train(data,NUM_CLUSTERS)
     centers = model.clusterCenters
     np.set_printoptions(threshold='nan')
-    with open('../../data/raw_clusters.txt','w') as f:
-        for c in centers:
-            # Format in exponential notation.
-            s = ','.join([('%e' % x) for x in c])
-            f.write('%s\n'% (s))
+    n = NUM_CLUSTERS
+    while n >= 2:
+        with open('../../data/clusters_%d.txt' % (n),'w') as f:
+            for c in centers:
+                # Format in exponential notation.
+                s = ','.join([('%e' % x) for x in c])
+                f.write('%s\n'% (s))
+        n -= 2
