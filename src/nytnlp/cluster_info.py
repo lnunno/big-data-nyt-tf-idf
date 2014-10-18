@@ -9,6 +9,8 @@ Created on Oct 17, 2014
 import pandas as pd
 from pandas.io.json import read_json
 import matplotlib.pyplot as plt
+import os
+from matplotlib import rcParams
 
 NUM_TERMS = 20
 NUM_CLUSTERS = 20
@@ -21,6 +23,7 @@ class ClusterComponent(object):
         self.score = score
 
 if __name__ == '__main__':
+    rcParams.update({'figure.autolayout':True})
     doc_freq = read_json('../../data/doc_freq.json', typ='series')
     doc_freq_index = doc_freq.index
     n = NUM_CLUSTERS
@@ -28,6 +31,9 @@ if __name__ == '__main__':
     average_cluster_length_ls = []
     while n >= 2:
         df = pd.DataFrame.from_csv('../../data/clusters_%d.txt' %(n), header=None, index_col=None)
+        # Create a new directory.
+        dir_name_path = '../../data/clusters/%d' % (n)
+        os.makedirs(dir_name_path, exist_ok=True)
         word_clusters = []
         for index, row in df.iterrows():
             t = row.nlargest(NUM_TERMS)
@@ -45,6 +51,15 @@ if __name__ == '__main__':
                 f.write('\n')
                 i += 1
                 sum_acc += wc.sum()
+                # Create the graph for this cluster.
+                wc = wc[wc.nonzero()[0]]
+                plt.figure()
+                wc.plot(kind='bar')
+                plt.xlabel('word')
+                plt.ylabel('tf-idf score')
+                plt.title('Cluster %d of %d' % (i,n))
+                plt.savefig(os.path.join(dir_name_path,'cluster_%d.png' % (i)))
+                plt.close()
             average_cluster_length = sum_acc/len(word_clusters)
             print('Wrote top terms for n = %d' % (n) )
             print('Average cluster length = %f' % (average_cluster_length))
@@ -52,6 +67,7 @@ if __name__ == '__main__':
             average_cluster_length_ls.append(average_cluster_length)
         n -= 2
     # Create the cluster length graph.
+    plt.figure()
     plt.plot(cluster_ls,average_cluster_length_ls)
     plt.xlabel('Number of clusters')
     plt.ylabel('Average tf-idf score')
