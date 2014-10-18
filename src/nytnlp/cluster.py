@@ -26,11 +26,11 @@ if __name__ == '__main__':
     sc = SparkContext(appName="KMeans")
     lines = sc.textFile('../../data/spark_tf_idf_vectors.tsv')
     data = lines.map(parseVector)
-    model = KMeans.train(data,NUM_CLUSTERS)
-    centers = model.clusterCenters
     np.set_printoptions(threshold='nan')
     n = NUM_CLUSTERS
     while n >= 2:
+        model = KMeans.train(data,n)
+        centers = model.clusterCenters
         with open('../../data/clusters_%d.txt' % (n),'w') as f:
             for c in centers:
                 # Format in exponential notation.
